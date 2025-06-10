@@ -6,7 +6,8 @@ DATE = $(shell date +%Y-%m-%d)
 all: out/archlinux.iso output/basedos.iso ouout/basedos-$(DATE).iso
 
 out/archlinux.iso:
-	sudo sh -c 'mkarchiso -v -w .archiso-tmp archiso && mv out/archlinux-*.iso out/archlinux.iso'
+	#sudo sh -c 'mkarchiso -v -w .archiso-tmp archiso && mv out/archlinux-*.iso out/archlinux.iso'
+	./buildiso.sh && mv out/desktop/cachyos-desktop-linux-250610.iso out/archlinux.iso
 
 out/basedos.iso: out/archlinux.iso
 	sudo ln -s archlinux.iso out/basedos.iso
